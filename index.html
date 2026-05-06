@@ -32,26 +32,23 @@
         .header-text h1 { font-size: 19pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.2; }
         .header-text h2 { font-size: 15pt; margin: 5px 0; font-weight: bold; text-align: center; }
         
-        .logo-box { margin: 15px 0; height: 160px; display: flex; align-items: center; justify-content: center; }
-        .college-logo { width: 160px; height: auto; object-fit: contain; }
+        .logo-box { margin: 15px 0; height: 150px; display: flex; align-items: center; justify-content: center; }
+        .college-logo { width: 150px; height: auto; object-fit: contain; }
 
         .dept-display { font-size: 17pt; font-weight: bold; margin: 5px 0; text-align: center; }
-        
-        .divider-line { border-top: 0.8pt solid black; width: 100%; margin: 8pt 0; }
+        .divider-line { border-top: 1pt solid black; width: 100%; margin: 8pt 0; }
 
         .asgn-display { font-size: 16pt; font-weight: bold; margin: 5pt 0; text-transform: uppercase; }
-        .subject-display p { font-size: 16pt; margin: 6pt 0; text-align: center; }
+        .subject-display p { font-size: 16pt; margin: 5pt 0; text-align: center; }
         
         .footer-wrap { width: 100%; margin-top: 5mm; flex-grow: 1; display: flex; flex-direction: column; align-items: center; }
         .footer-section { text-align: center; width: 100%; }
-        .footer-section h3 { font-size: 16pt; text-decoration: underline; margin-bottom: 10px; font-weight: bold; }
-        .footer-section p { font-size: 15pt; margin: 4pt 0; }
+        .footer-section h3 { font-size: 16pt; text-decoration: underline; margin-bottom: 8px; font-weight: bold; }
+        .footer-section p { font-size: 15pt; margin: 3pt 0; }
         
-        /* Submitted To ko upar shift karne ke liye margin tight kiya */
-        .submitted-to-box { margin-top: 25px; } 
-
-        /* Designation line break handle karne ke liye */
-        .desig-text { display: block; margin-top: 2px; font-weight: normal; }
+        /* Submitted To section ko upar lane ke liye negative margin ya tight spacing */
+        .submitted-to-box { margin-top: 15px; } 
+        .desig-text { display: block; margin-top: 2px; font-size: 14pt; }
 
         @media print {
             body { background: none; padding: 0; }
@@ -93,7 +90,7 @@
             <h2>Tehri Garhwal (Uttarakhand)</h2>
         </div>
         <div class="logo-box">
-            <img src="logo.png" class="college-logo" alt="THDC Logo" onerror="this.src='https://via.placeholder.com/160x160?text=Logo+Not+Found'">
+            <img src="./logo.png" class="college-logo" alt="THDC Logo">
         </div>
         <div class="dept-display">Department of <span id="outDept">-------</span></div>
         <div class="divider-line"></div>
