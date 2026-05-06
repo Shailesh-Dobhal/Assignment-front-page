@@ -14,7 +14,7 @@
         
         button { width: 100%; padding: 12px; background: #27ae60; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 10px; }
 
-        /* A4 Page Styling - Updated for better vertical space */
+        /* A4 Page Styling */
         #assignment-page {
             width: 210mm;
             height: 297mm;
@@ -34,27 +34,27 @@
         .header-text h1 { font-size: 17pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.1; }
         .header-text h2 { font-size: 13pt; margin: 4px 0; font-weight: bold; text-align: center; }
         
-        .logo-box { margin: 10px 0; height: 120px; display: flex; align-items: center; justify-content: center; }
-        .college-logo { width: 120px; height: auto; object-fit: contain; }
+        /* Updated: Logo size increased */
+        .logo-box { margin: 15px 0; height: 140px; display: flex; align-items: center; justify-content: center; }
+        .college-logo { width: 150px; height: auto; object-fit: contain; }
 
         .dept-display { font-size: 15pt; font-weight: bold; margin: 4px 0; text-align: center; }
-        .divider-line { border-top: 1pt solid black; width: 100%; margin: 8pt 0; }
+        
+        /* Updated: Faded grey lines with uniform width */
+        .divider-line { border-top: 1pt solid #ccc; width: 100%; margin: 10pt 0; }
 
         .asgn-display { font-size: 14pt; font-weight: bold; margin: 4pt 0; text-transform: uppercase; }
         .subject-display p { font-size: 14pt; margin: 4pt 0; text-align: center; }
         
-        /* Footer Wrap - Content distribution */
         .footer-wrap { width: 100%; margin-top: 5mm; display: flex; flex-direction: column; align-items: center; }
         .footer-section { text-align: center; width: 100%; }
         .footer-section h3 { font-size: 14pt; text-decoration: underline; margin-bottom: 6px; font-weight: bold; }
         .footer-section p { font-size: 13pt; margin: 3pt 0; }
         
-        /* "Submitted To" section vertically upar shift kiya gaya hai */
-        .submitted-to-box { margin-top: 0mm; } 
+        .submitted-to-box { margin-top: 5mm; } 
         .desig-text { display: block; margin-top: 1px; font-size: 12pt; font-weight: normal; }
 
-        /* Bottom page boundary line */
-        .bottom-border { margin-top: auto; border-top: 1pt solid black; width: 100%; padding-bottom: 5mm; }
+        .bottom-border { margin-top: auto; border-top: 1pt solid #ccc; width: 100%; padding-bottom: 5mm; }
 
         @media print {
             body { background: none; padding: 0; }
@@ -63,7 +63,6 @@
             @page { size: A4; margin: 0; }
         }
 
-        /* Screen preview on mobile */
         @media screen and (max-width: 600px) {
             #assignment-page { 
                 transform: scale(0.38); 
@@ -85,8 +84,8 @@
         <div class="input-group"><label>Roll No.</label><input type="text" id="inRoll" placeholder="Enter Roll Number" oninput="sync()"></div>
         <div class="input-group"><label>Year/Sem</label><input type="text" id="inYear" placeholder="e.g. 3rd / 06th" oninput="sync()"></div>
         <div class="input-group"><label>Faculty Name</label><input type="text" id="inFacName" placeholder="Enter Faculty Name" oninput="sync()"></div>
-        <div class="input-group"><label>Designation (Line 1)</label><input type="text" id="inFacDesig" placeholder="e.g. Assistant Professor in" oninput="sync()"></div>
-        <div class="input-group"><label>Department (Line 2)</label><input type="text" id="inFacDept" placeholder="e.g. Department of Electrical Engineering" oninput="sync()"></div>
+        <div class="input-group"><label>Designation (Line 1)</label><input type="text" id="inFacDesig" placeholder="e.g. Assistant Professor" oninput="sync()"></div>
+        <div class="input-group"><label>Department (Line 2)</label><input type="text" id="inFacDept" placeholder="e.g. Dept. of Electrical Engineering" oninput="sync()"></div>
         
         <button onclick="window.print()">Download PDF</button>
     </div>
@@ -112,17 +111,16 @@
         <div class="footer-wrap">
             <div class="footer-section">
                 <h3>Submitted By:</h3>
-                <p><b>Name:</b> <span id="outName">-------</span></p>
+                <p><b>Name:</b> <span id="outName">SD</span></p>
                 <p><b>Roll Number:</b> <span id="outRoll">-------</span></p>
                 <p><b>Year / Semester:</b> <span id="outYear">-------</span></p>
             </div>
             
-            <div class="divider-line" style="width: 80%; opacity: 0.5;"></div>
-            
-            <div class="footer-section submitted-to-box">
+            <div class="divider-line"></div> <div class="footer-section submitted-to-box">
                 <h3>Submitted To:</h3>
                 <p><b><span id="outFacName">-------</span></b></p>
-                <p><span id="outFacDesig">-------</span> <span id="outFacDept" class="desig-text">-------</span></p>
+                <p><span id="outFacDesig">-------</span></p>
+                <p><span id="outFacDept" class="desig-text">-------</span></p>
                 <p>THDC-IHET</p>
             </div>
         </div>
@@ -136,7 +134,7 @@
             document.getElementById('outAsgn').innerText = document.getElementById('inAsgn').value || "--";
             document.getElementById('outSubName').innerText = document.getElementById('inSubName').value || "-------";
             document.getElementById('outSubCode').innerText = document.getElementById('inSubCode').value || "-------";
-            document.getElementById('outName').innerText = document.getElementById('inName').value || "-------";
+            document.getElementById('outName').innerText = document.getElementById('inName').value || "SD";
             document.getElementById('outRoll').innerText = document.getElementById('inRoll').value || "-------";
             document.getElementById('outYear').innerText = document.getElementById('inYear').value || "-------";
             document.getElementById('outFacName').innerText = document.getElementById('inFacName').value || "-------";
@@ -146,3 +144,4 @@
     </script>
 </body>
 </html>
+
