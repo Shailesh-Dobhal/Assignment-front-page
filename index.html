@@ -29,29 +29,29 @@
             border: 1px solid #ddd;
         }
 
-        .header-text h1 { font-size: 19pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; }
+        .header-text h1 { font-size: 19pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.2; }
         .header-text h2 { font-size: 15pt; margin: 5px 0; font-weight: bold; text-align: center; }
         
-        .logo-box { margin: 20px 0; }
-        .college-logo { width: 160px; height: auto; }
+        .logo-box { margin: 15px 0; height: 160px; display: flex; align-items: center; justify-content: center; }
+        .college-logo { width: 160px; height: auto; object-fit: contain; }
 
-        .dept-display { font-size: 17pt; font-weight: bold; margin: 8px 0; text-align: center; }
+        .dept-display { font-size: 17pt; font-weight: bold; margin: 5px 0; text-align: center; }
         
-        .divider-line { border-top: 0.5pt solid black; width: 100%; margin: 10pt 0; }
+        .divider-line { border-top: 0.8pt solid black; width: 100%; margin: 8pt 0; }
 
-        .asgn-display { font-size: 15pt; font-weight: bold; margin: 8pt 0; text-transform: uppercase; }
-        .subject-display p { font-size: 15pt; margin: 8pt 0; text-align: center; }
+        .asgn-display { font-size: 16pt; font-weight: bold; margin: 5pt 0; text-transform: uppercase; }
+        .subject-display p { font-size: 16pt; margin: 6pt 0; text-align: center; }
         
-        .footer-wrap { width: 100%; margin-top: 10mm; flex-grow: 1; display: flex; flex-direction: column; align-items: center; }
+        .footer-wrap { width: 100%; margin-top: 5mm; flex-grow: 1; display: flex; flex-direction: column; align-items: center; }
         .footer-section { text-align: center; width: 100%; }
-        .footer-section h3 { font-size: 16pt; text-decoration: underline; margin-bottom: 12px; font-weight: bold; }
-        .footer-section p { font-size: 15pt; margin: 6pt 0; }
+        .footer-section h3 { font-size: 16pt; text-decoration: underline; margin-bottom: 10px; font-weight: bold; }
+        .footer-section p { font-size: 15pt; margin: 4pt 0; }
         
-        /* 'Submitted To' ko upar shift karne ke liye margin kam kiya */
-        .submitted-to-box { margin-top: 20px; } 
+        /* Submitted To ko upar shift karne ke liye margin tight kiya */
+        .submitted-to-box { margin-top: 25px; } 
 
         /* Designation line break handle karne ke liye */
-        .desig-text { display: block; margin-top: 4px; }
+        .desig-text { display: block; margin-top: 2px; font-weight: normal; }
 
         @media print {
             body { background: none; padding: 0; }
@@ -74,15 +74,15 @@
     <div class="form-container">
         <h2 style="text-align:center; margin:0 0 15px 0;">Assignment Details</h2>
         <div class="input-group"><label>Dept Name</label><input type="text" id="inDept" placeholder="Electrical Engineering" oninput="sync()"></div>
-        <div class="input-group"><label>Asgn No.</label><input type="text" id="inAsgn" placeholder="01" oninput="sync()"></div>
+        <div class="input-group"><label>Asgn No.</label><input type="text" id="inAsgn" placeholder="02" oninput="sync()"></div>
         <div class="input-group"><label>Subject</label><input type="text" id="inSubName" placeholder="Embedded System" oninput="sync()"></div>
-        <div class="input-group"><label>Sub Code</label><input type="text" id="inSubCode" placeholder="EET-221" oninput="sync()"></div>
-        <div class="input-group"><label>My Name</label><input type="text" id="inName" placeholder="Enter Name" oninput="sync()"></div>
+        <div class="input-group"><label>Sub Code</label><input type="text" id="inSubCode" placeholder="EET-002" oninput="sync()"></div>
+        <div class="input-group"><label>My Name</label><input type="text" id="inName" placeholder="Your Name" oninput="sync()"></div>
         <div class="input-group"><label>Roll No.</label><input type="text" id="inRoll" placeholder="Roll Number" oninput="sync()"></div>
-        <div class="input-group"><label>Year/Sem</label><input type="text" id="inYear" placeholder="3rd / 6th" oninput="sync()"></div>
-        <div class="input-group"><label>Faculty</label><input type="text" id="inFacName" placeholder="Faculty Name" oninput="sync()"></div>
-        <div class="input-group"><label>Designation (Assistant Professor in...)</label><input type="text" id="inFacDesig" placeholder="Assistant Professor in" oninput="sync()"></div>
-        <div class="input-group"><label>Dept (Next Line)</label><input type="text" id="inFacDept" placeholder="Department of Electrical Engineering" oninput="sync()"></div>
+        <div class="input-group"><label>Year/Sem</label><input type="text" id="inYear" placeholder="3rd / 06th" oninput="sync()"></div>
+        <div class="input-group"><label>Faculty Name</label><input type="text" id="inFacName" placeholder="Ms Vasundhara" oninput="sync()"></div>
+        <div class="input-group"><label>Designation (Line 1)</label><input type="text" id="inFacDesig" placeholder="Assistant professor in" oninput="sync()"></div>
+        <div class="input-group"><label>Department (Line 2)</label><input type="text" id="inFacDept" placeholder="Department of Electrical Engineering" oninput="sync()"></div>
         
         <button onclick="window.print()">Download PDF</button>
     </div>
@@ -93,7 +93,7 @@
             <h2>Tehri Garhwal (Uttarakhand)</h2>
         </div>
         <div class="logo-box">
-            <img src="https://i.ibb.co/3Wq8P2m/thdc-logo-final.png" class="college-logo" alt="THDC Logo">
+            <img src="logo.png" class="college-logo" alt="THDC Logo" onerror="this.src='https://via.placeholder.com/160x160?text=Logo+Not+Found'">
         </div>
         <div class="dept-display">Department of <span id="outDept">-------</span></div>
         <div class="divider-line"></div>
