@@ -18,7 +18,7 @@
         #assignment-page {
             width: 210mm;
             height: 297mm;
-            padding: 10mm 15mm; /* Margins kam kiye */
+            padding: 20mm 15mm 10mm 15mm; /* Top padding badha di taaki naam neeche aaye */
             background: white;
             box-sizing: border-box;
             display: flex;
@@ -30,27 +30,28 @@
             overflow: hidden;
         }
 
-        .header-text h1 { font-size: 18pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.1; }
-        .header-text h2 { font-size: 14pt; margin: 4px 0; font-weight: bold; text-align: center; }
+        .header-text { margin-bottom: 15px; } /* Header ke neeche gap */
+        .header-text h1 { font-size: 18pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.2; }
+        .header-text h2 { font-size: 14pt; margin: 5px 0; font-weight: bold; text-align: center; }
         
-        .logo-box { margin: 10px 0; height: 140px; display: flex; align-items: center; justify-content: center; }
-        .college-logo { width: 140px; height: auto; object-fit: contain; }
+        .logo-box { margin: 10px 0; height: 130px; display: flex; align-items: center; justify-content: center; }
+        .college-logo { width: 130px; height: auto; object-fit: contain; }
 
-        .dept-display { font-size: 16pt; font-weight: bold; margin: 4px 0; text-align: center; }
-        .divider-line { border-top: 1pt solid black; width: 100%; margin: 6pt 0; }
+        .dept-display { font-size: 16pt; font-weight: bold; margin: 5px 0; text-align: center; }
+        .divider-line { border-top: 1.2pt solid black; width: 100%; margin: 8pt 0; }
 
-        .asgn-display { font-size: 15pt; font-weight: bold; margin: 4pt 0; text-transform: uppercase; }
-        .subject-display p { font-size: 15pt; margin: 4pt 0; text-align: center; }
+        .asgn-display { font-size: 15pt; font-weight: bold; margin: 6pt 0; text-transform: uppercase; }
+        .subject-display p { font-size: 15pt; margin: 5pt 0; text-align: center; }
         
-        .footer-wrap { width: 100%; margin-top: 5mm; display: flex; flex-direction: column; align-items: center; }
-        .footer-section { text-align: center; width: 100%; margin-bottom: 5px; }
-        .footer-section h3 { font-size: 15pt; text-decoration: underline; margin-bottom: 6px; font-weight: bold; }
-        .footer-section p { font-size: 14pt; margin: 2pt 0; }
+        .footer-wrap { width: 100%; margin-top: 8mm; display: flex; flex-direction: column; align-items: center; }
+        .footer-section { text-align: center; width: 100%; }
+        .footer-section h3 { font-size: 15pt; text-decoration: underline; margin-bottom: 8px; font-weight: bold; }
+        .footer-section p { font-size: 14pt; margin: 3pt 0; }
         
-        .submitted-to-box { margin-top: 15px; } 
-        .desig-text { display: block; margin-top: 1px; font-size: 13pt; font-weight: normal; }
+        .submitted-to-box { margin-top: 20px; } 
+        .desig-text { display: block; margin-top: 2px; font-size: 13pt; font-weight: normal; }
 
-        /* Bottom line ko fix karne ke liye */
+        /* Bottom boundary */
         .bottom-border { margin-top: auto; border-top: 1pt solid black; width: 100%; padding-bottom: 5mm; }
 
         @media print {
@@ -113,7 +114,7 @@
                 <p><b>Year / Semester:</b> <span id="outYear">-------</span></p>
             </div>
             
-            <div class="divider-line" style="width: 80%;"></div>
+            <div class="divider-line" style="width: 80%; opacity: 0.5;"></div>
             
             <div class="footer-section submitted-to-box">
                 <h3>Submitted To:</h3>
@@ -142,3 +143,4 @@
     </script>
 </body>
 </html>
+
