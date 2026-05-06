@@ -179,7 +179,9 @@ function downloadPDF() {
     document.title =
         studentName + "-" + subjectCode;
 
-    window.print();
+    setTimeout(() => {
+        window.print();
+    }, 300);
 }
 
 </script>  </body>    
