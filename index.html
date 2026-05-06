@@ -18,7 +18,7 @@
         #assignment-page {
             width: 210mm;
             height: 297mm;
-            padding: 25mm 20mm 15mm 20mm; /* Top padding badhai */
+            padding: 25mm 20mm 15mm 20mm;
             background: white;
             box-sizing: border-box;
             display: flex;
@@ -30,7 +30,7 @@
             overflow: hidden;
         }
 
-        .header-text { margin-bottom: 25px; } /* Header ke baad gap badhaya */
+        .header-text { margin-bottom: 25px; }
         .header-text h1 { font-size: 19pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.2; }
         .header-text h2 { font-size: 15pt; margin: 8px 0; font-weight: bold; text-align: center; }
         
@@ -38,20 +38,20 @@
         .college-logo { width: 140px; height: auto; object-fit: contain; }
 
         .dept-display { font-size: 17pt; font-weight: bold; margin: 10px 0; text-align: center; }
-        .divider-line { border-top: 1.2pt solid black; width: 100%; margin: 12pt 0; }
+        
+        /* Divider Lines - Fixed to 100% width */
+        .divider-line { border-top: 1.2pt solid black; width: 100%; margin: 15pt 0; }
 
-        /* Assignment section */
         .asgn-display { font-size: 16pt; font-weight: bold; margin: 10pt 0 18pt 0; text-transform: uppercase; }
         
         .subject-display p { font-size: 16pt; margin: 8pt 0; text-align: center; }
         
-        /* Footer Wrap - Content distribution */
         .footer-wrap { width: 100%; margin-top: 15mm; display: flex; flex-direction: column; align-items: center; }
         .footer-section { text-align: center; width: 100%; }
         .footer-section h3 { font-size: 16pt; text-decoration: underline; margin-bottom: 10px; font-weight: bold; }
-        .footer-section p { font-size: 15pt; margin: 5pt 0; }
+        .footer-section p { font-size: 15pt; margin: 6pt 0; }
         
-        .submitted-to-box { margin-top: 35px; } /* Gap between By and To */
+        .submitted-to-box { margin-top: 30px; }
         .desig-text { display: block; margin-top: 3px; font-size: 14pt; font-weight: normal; }
 
         .bottom-border { margin-top: auto; border-top: 1pt solid black; width: 100%; padding-bottom: 10mm; }
@@ -76,7 +76,6 @@
 
     <div class="form-container">
         <h2 style="text-align:center; margin:0 0 15px 0;">Assignment Details</h2>
-        
         <div class="input-group"><label>Dept Name</label><input type="text" id="inDept" placeholder="e.g. Electrical Engineering" oninput="sync()"></div>
         <div class="input-group"><label>Asgn No.</label><input type="text" id="inAsgn" placeholder="e.g. 02" oninput="sync()"></div>
         <div class="input-group"><label>Subject</label><input type="text" id="inSubName" placeholder="e.g. Embedded System" oninput="sync()"></div>
@@ -117,7 +116,7 @@
                 <p><b>Year / Semester:</b> <span id="outYear">-------</span></p>
             </div>
             
-            <div class="divider-line" style="width: 80%; opacity: 0.5;"></div>
+            <div class="divider-line"></div>
             
             <div class="footer-section submitted-to-box">
                 <h3>Submitted To:</h3>
