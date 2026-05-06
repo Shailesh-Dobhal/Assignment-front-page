@@ -18,7 +18,7 @@
         #assignment-page {
             width: 210mm;
             height: 297mm;
-            padding: 20mm 15mm 10mm 15mm; /* Top padding badha di taaki naam neeche aaye */
+            padding: 20mm 15mm 10mm 15mm;
             background: white;
             box-sizing: border-box;
             display: flex;
@@ -30,7 +30,7 @@
             overflow: hidden;
         }
 
-        .header-text { margin-bottom: 15px; } /* Header ke neeche gap */
+        .header-text { margin-bottom: 15px; }
         .header-text h1 { font-size: 18pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.2; }
         .header-text h2 { font-size: 14pt; margin: 5px 0; font-weight: bold; text-align: center; }
         
@@ -40,7 +40,9 @@
         .dept-display { font-size: 16pt; font-weight: bold; margin: 5px 0; text-align: center; }
         .divider-line { border-top: 1.2pt solid black; width: 100%; margin: 8pt 0; }
 
-        .asgn-display { font-size: 15pt; font-weight: bold; margin: 6pt 0; text-transform: uppercase; }
+        /* Assignment line ko thoda niche karne ke liye margin badhaya */
+        .asgn-display { font-size: 15pt; font-weight: bold; margin: 6pt 0 15pt 0; text-transform: uppercase; }
+        
         .subject-display p { font-size: 15pt; margin: 5pt 0; text-align: center; }
         
         .footer-wrap { width: 100%; margin-top: 8mm; display: flex; flex-direction: column; align-items: center; }
@@ -51,7 +53,6 @@
         .submitted-to-box { margin-top: 20px; } 
         .desig-text { display: block; margin-top: 2px; font-size: 13pt; font-weight: normal; }
 
-        /* Bottom boundary */
         .bottom-border { margin-top: auto; border-top: 1pt solid black; width: 100%; padding-bottom: 5mm; }
 
         @media print {
@@ -74,16 +75,16 @@
 
     <div class="form-container">
         <h2 style="text-align:center; margin:0 0 15px 0;">Assignment Details</h2>
-        <div class="input-group"><label>Dept Name</label><input type="text" id="inDept" placeholder="Electrical Engineering" oninput="sync()"></div>
-        <div class="input-group"><label>Asgn No.</label><input type="text" id="inAsgn" placeholder="02" oninput="sync()"></div>
-        <div class="input-group"><label>Subject</label><input type="text" id="inSubName" placeholder="Embedded System" oninput="sync()"></div>
-        <div class="input-group"><label>Sub Code</label><input type="text" id="inSubCode" placeholder="EET-002" oninput="sync()"></div>
-        <div class="input-group"><label>My Name</label><input type="text" id="inName" placeholder="Your Name" oninput="sync()"></div>
-        <div class="input-group"><label>Roll No.</label><input type="text" id="inRoll" placeholder="Roll Number" oninput="sync()"></div>
-        <div class="input-group"><label>Year/Sem</label><input type="text" id="inYear" placeholder="3rd / 06th" oninput="sync()"></div>
-        <div class="input-group"><label>Faculty Name</label><input type="text" id="inFacName" placeholder="Ms Vasundhara" oninput="sync()"></div>
-        <div class="input-group"><label>Designation (Line 1)</label><input type="text" id="inFacDesig" placeholder="Assistant professor in" oninput="sync()"></div>
-        <div class="input-group"><label>Department (Line 2)</label><input type="text" id="inFacDept" placeholder="Department of Electrical Engineering" oninput="sync()"></div>
+        <div class="input-group"><label>Dept Name</label><input type="text" id="inDept" placeholder="e.g. Electrical Engineering" oninput="sync()"></div>
+        <div class="input-group"><label>Asgn No.</label><input type="text" id="inAsgn" placeholder="e.g. 02" oninput="sync()"></div>
+        <div class="input-group"><label>Subject</label><input type="text" id="inSubName" placeholder="e.g. Embedded System" oninput="sync()"></div>
+        <div class="input-group"><label>Sub Code</label><input type="text" id="inSubCode" placeholder="e.g. EET-002" oninput="sync()"></div>
+        <div class="input-group"><label>My Name</label><input type="text" id="inName" placeholder="Enter Your Name" oninput="sync()"></div>
+        <div class="input-group"><label>Roll No.</label><input type="text" id="inRoll" placeholder="Enter Roll Number" oninput="sync()"></div>
+        <div class="input-group"><label>Year/Sem</label><input type="text" id="inYear" placeholder="e.g. 3rd / 06th" oninput="sync()"></div>
+        <div class="input-group"><label>Faculty Name</label><input type="text" id="inFacName" placeholder="Enter Faculty Name" oninput="sync()"></div>
+        <div class="input-group"><label>Designation (Line 1)</label><input type="text" id="inFacDesig" placeholder="e.g. Assistant Professor in" oninput="sync()"></div>
+        <div class="input-group"><label>Department (Line 2)</label><input type="text" id="inFacDept" placeholder="e.g. Department of Electrical Engineering" oninput="sync()"></div>
         
         <button onclick="window.print()">Download PDF</button>
     </div>
@@ -143,4 +144,3 @@
     </script>
 </body>
 </html>
-
