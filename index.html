@@ -1,149 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THDC Assignment Page</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
-        
-        .form-container { background: #fff; padding: 20px; border-radius: 8px; width: 95%; max-width: 450px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .input-group { margin-bottom: 8px; }
-        label { display: block; font-size: 11px; font-weight: bold; margin-bottom: 3px; color: #333; }
-        input { width: 100%; padding: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        
-        button { width: 100%; padding: 12px; background: #27ae60; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 10px; }
-
-        /* A4 Page Styling */
-        #assignment-page {
-            width: 210mm;
-            height: 297mm;
-            padding: 15mm 15mm 10mm 15mm;
-            background: white;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: "Times New Roman", Times, serif;
-            color: black;
-            border: 1px solid #ddd;
-            overflow: hidden;
-        }
-
-        .header-text { margin-bottom: 10px; }
-        .header-text h1 { font-size: 17pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.1; }
-        .header-text h2 { font-size: 13pt; margin: 4px 0; font-weight: bold; text-align: center; }
-        
-        /* Updated: Logo size increased */
-        .logo-box { margin: 15px 0; height: 140px; display: flex; align-items: center; justify-content: center; }
-        .college-logo { width: 250px; height: auto; object-fit: contain; }
-<br/>
-        
-        .dept-display { font-size: 15pt; font-weight: bold; margin: 4px 0; text-align: center; }
-        
-        /* Updated: Faded grey lines with uniform width */
-        .divider-line { border-top: 1pt solid #ccc; width: 100%; margin: 10pt 0; }
-
-        .asgn-display { font-size: 14pt; font-weight: bold; margin: 4pt 0; text-transform: uppercase; }
-        .subject-display p { font-size: 14pt; margin: 4pt 0; text-align: center; }
-        
-        .footer-wrap { width: 100%; margin-top: 5mm; display: flex; flex-direction: column; align-items: center; }
-        .footer-section { text-align: center; width: 100%; }
-        .footer-section h3 { font-size: 14pt; text-decoration: underline; margin-bottom: 6px; font-weight: bold; }
-        .footer-section p { font-size: 13pt; margin: 3pt 0; }
-        
-        .submitted-to-box { margin-top: 5mm; } 
-        .desig-text { display: block; margin-top: 1px; font-size: 12pt; font-weight: normal; }
-
-        .bottom-border { margin-top: auto; border-top: 1pt solid #ccc; width: 100%; padding-bottom: 5mm; }
-
-        @media print {
-            body { background: none; padding: 0; }
-            .form-container, button { display: none !important; }
-            #assignment-page { border: none; margin: 0; width: 100%; height: 100%; }
-            @page { size: A4; margin: 0; }
-        }
-
-        @media screen and (max-width: 600px) {
-            #assignment-page { 
-                transform: scale(0.38); 
-                transform-origin: top center; 
-                margin-bottom: -185mm; 
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="form-container">
-        <h2 style="text-align:center; margin:0 0 15px 0;">Assignment Details</h2>
-        <div class="input-group"><label>Dept Name</label><input type="text" id="inDept" placeholder="e.g. Electrical Engineering" oninput="sync()"></div>
-        <div class="input-group"><label>Asgn No.</label><input type="text" id="inAsgn" placeholder="e.g. 02" oninput="sync()"></div>
-        <div class="input-group"><label>Subject</label><input type="text" id="inSubName" placeholder="e.g. Embedded System" oninput="sync()"></div>
-        <div class="input-group"><label>Sub Code</label><input type="text" id="inSubCode" placeholder="e.g. EET-002" oninput="sync()"></div>
-        <div class="input-group"><label>My Name</label><input type="text" id="inName" placeholder="Enter Your Name" oninput="sync()"></div>
-        <div class="input-group"><label>Roll No.</label><input type="text" id="inRoll" placeholder="Enter Roll Number" oninput="sync()"></div>
-        <div class="input-group"><label>Year/Sem</label><input type="text" id="inYear" placeholder="e.g. 3rd / 06th" oninput="sync()"></div>
-        <div class="input-group"><label>Faculty Name</label><input type="text" id="inFacName" placeholder="Enter Faculty Name" oninput="sync()"></div>
-        <div class="input-group"><label>Designation (Line 1)</label><input type="text" id="inFacDesig" placeholder="e.g. Assistant Professor" oninput="sync()"></div>
-        <div class="input-group"><label>Department (Line 2)</label><input type="text" id="inFacDept" placeholder="e.g. Dept. of Electrical Engineering" oninput="sync()"></div>
-        
-        <button onclick="window.print()">Download PDF</button>
-    </div>
-
-    <div id="assignment-page">
-        <div class="header-text">
-            <h1>THDC Institute of Hydropower Engineering and Technology</h1>
-            <h2>Tehri Garhwal (Uttarakhand)</h2>
-        </div>
-        <div class="logo-box">
-            <img src="./logo.png" class="college-logo" alt="THDC Logo">
-        </div>
-        <br/>
-        <div class="dept-display">Department of <span id="outDept">-------</span></div>
-        <div class="divider-line"></div>
-        <div class="asgn-display">ASSIGNMENT NO. - <span id="outAsgn">--</span></div>
-        <div class="divider-line"></div>
-        <div class="subject-display">
-            <p><b>Subject Name:</b> <span id="outSubName">-------</span></p>
-            <p><b>Subject Code:</b> <span id="outSubCode">-------</span></p>
-        </div>
-        <div class="divider-line"></div>
-        
-        <div class="footer-wrap">
-            <div class="footer-section">
-                <h3>Submitted By:</h3>
-                <p><b>Name:</b> <span id="outName">SD</span></p>
-                <p><b>Roll Number:</b> <span id="outRoll">-------</span></p>
-                <p><b>Year / Semester:</b> <span id="outYear">-------</span></p>
-            </div>
-            
-            <div class="divider-line"></div> <div class="footer-section submitted-to-box">
-                <h3>Submitted To:</h3>
-                <p><b><span id="outFacName">-------</span></b></p>
-                <p><span id="outFacDesig">-------</span></p>
-                <p><span id="outFacDept" class="desig-text">-------</span></p>
-                <p>THDC-IHET</p>
-            </div>
-        </div>
-
-        <div class="bottom-border"></div>
-    </div>
-
-    <script>
-        function sync() {
-            document.getElementById('outDept').innerText = document.getElementById('inDept').value || "-------";
-            document.getElementById('outAsgn').innerText = document.getElementById('inAsgn').value || "--";
-            document.getElementById('outSubName').innerText = document.getElementById('inSubName').value || "-------";
-            document.getElementById('outSubCode').innerText = document.getElementById('inSubCode').value || "-------";
-            document.getElementById('outName').innerText = document.getElementById('inName').value || "SD";
-            document.getElementById('outRoll').innerText = document.getElementById('inRoll').value || "-------";
-            document.getElementById('outYear').innerText = document.getElementById('inYear').value || "-------";
-            document.getElementById('outFacName').innerText = document.getElementById('inFacName').value || "-------";
-            document.getElementById('outFacDesig').innerText = document.getElementById('inFacDesig').value || "-------";
-            document.getElementById('outFacDept').innerText = document.getElementById('inFacDept').value || "-------";
-        }
-    </script>
-</body>
+<html>
+  <head>
+    <title> </title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title"></h1>
+      <p id="  "></p>
+      <script src="script.js"></script>
+  </body>
 </html>
+ <!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>THDC Assignment Page</title>  
+    <style>  
+        body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }  .form-container { background: #fff; padding: 20px; border-radius: 8px; width: 95%; max-width: 450px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }  
+    .input-group { margin-bottom: 8px; }  
+    label { display: block; font-size: 11px; font-weight: bold; margin-bottom: 3px; color: #333; }  
+    input { width: 100%; padding: 7px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }  
+      
+    button { width: 100%; padding: 12px; background: #27ae60; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 10px; }  
+
+    /* A4 Page Styling */  
+    #assignment-page {  
+        width: 210mm;  
+        height: 297mm;  
+        padding: 15mm 15mm 10mm 15mm;  
+        background: white;  
+        box-sizing: border-box;  
+        display: flex;  
+        flex-direction: column;  
+        align-items: center;  
+        font-family: "Times New Roman", Times, serif;  
+        color: black;  
+        border: 1px solid #ddd;  
+        overflow: hidden;  
+    }  
+
+    .header-text { margin-bottom: 10px; }  
+    .header-text h1 { font-size: 17pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.1; }  
+    .header-text h2 { font-size: 13pt; margin: 4px 0; font-weight: bold; text-align: center; }  
+      
+    /* Updated: Logo size increased */  
+    .logo-box { margin: 15px 0; height: 140px; display: flex; align-items: center; justify-content: center; }  
+    .college-logo { width: 150px; height: auto; object-fit: contain; }  
+
+    .dept-display { font-size: 15pt; font-weight: bold; margin: 4px 0; text-align: center; }  
+      
+    /* Updated: Faded grey lines with uniform width */  
+    .divider-line { border-top: 1pt solid #ccc; width: 100%; margin: 10pt 0; }  
+
+    .asgn-display { font-size: 14pt; font-weight: bold; margin: 4pt 0; text-transform: uppercase; }  
+    .subject-display p { font-size: 14pt; margin: 4pt 0; text-align: center; }  
+      
+    .footer-wrap { width: 100%; margin-top: 5mm; display: flex; flex-direction: column; align-items: center; }  
+    .footer-section { text-align: center; width: 100%; }  
+    .footer-section h3 { font-size: 14pt; text-decoration: underline; margin-bottom: 6px; font-weight: bold; }  
+    .footer-section p { font-size: 13pt; margin: 3pt 0; }  
+      
+    .submitted-to-box { margin-top: 5mm; }   
+    .desig-text { display: block; margin-top: 1px; font-size: 12pt; font-weight: normal; }  
+
+    .bottom-border { margin-top: auto; border-top: 1pt solid #ccc; width: 100%; padding-bottom: 5mm; }  
+
+    @media print {  
+        body { background: none; padding: 0; }  
+        .form-container, button { display: none !important; }  
+        #assignment-page { border: none; margin: 0; width: 100%; height: 100%; }  
+        @page { size: A4; margin: 0; }  
+    }  
+
+    @media screen and (max-width: 600px) {  
+        #assignment-page {   
+            transform: scale(0.38);   
+            transform-origin: top center;   
+            margin-bottom: -185mm;   
+        }  
+    }  
+</style>
+
+</head>  
+<body>  <div class="form-container">  
+    <h2 style="text-align:center; margin:0 0 15px 0;">Assignment Details</h2>  
+    <div class="input-group"><label>Dept Name</label><input type="text" id="inDept" placeholder="e.g. Electrical Engineering" oninput="sync()"></div>  
+    <div class="input-group"><label>Asgn No.</label><input type="text" id="inAsgn" placeholder="e.g. 02" oninput="sync()"></div>  
+    <div class="input-group"><label>Subject</label><input type="text" id="inSubName" placeholder="e.g. Embedded System" oninput="sync()"></div>  
+    <div class="input-group"><label>Sub Code</label><input type="text" id="inSubCode" placeholder="e.g. EET-002" oninput="sync()"></div>  
+    <div class="input-group"><label>My Name</label><input type="text" id="inName" placeholder="Enter Your Name" oninput="sync()"></div>  
+    <div class="input-group"><label>Roll No.</label><input type="text" id="inRoll" placeholder="Enter Roll Number" oninput="sync()"></div>  
+    <div class="input-group"><label>Year/Sem</label><input type="text" id="inYear" placeholder="e.g. 3rd / 06th" oninput="sync()"></div>  
+    <div class="input-group"><label>Faculty Name</label><input type="text" id="inFacName" placeholder="Enter Faculty Name" oninput="sync()"></div>  
+    <div class="input-group"><label>Designation (Line 1)</label><input type="text" id="inFacDesig" placeholder="e.g. Assistant Professor" oninput="sync()"></div>  
+    <div class="input-group"><label>Department (Line 2)</label><input type="text" id="inFacDept" placeholder="e.g. Dept. of Electrical Engineering" oninput="sync()"></div>  
+      
+    <button onclick="window.print()">Download PDF</button>  
+</div>  
+
+<div id="assignment-page">  
+    <div class="header-text">  
+        <h1>THDC Institute of Hydropower Engineering and Technology</h1>  
+        <h2>Tehri Garhwal (Uttarakhand)</h2>  
+    </div>  
+    <div class="logo-box">  
+        <img src="./logo.png" class="college-logo" alt="THDC Logo">  
+    </div>  
+    <div class="dept-display">Department of <span id="outDept">-------</span></div>  
+    <div class="divider-line"></div>  
+    <div class="asgn-display">ASSIGNMENT NO. - <span id="outAsgn">--</span></div>  
+    <div class="divider-line"></div>  
+    <div class="subject-display">  
+        <p><b>Subject Name:</b> <span id="outSubName">-------</span></p>  
+        <p><b>Subject Code:</b> <span id="outSubCode">-------</span></p>  
+    </div>  
+    <div class="divider-line"></div>  
+      
+    <div class="footer-wrap">  
+        <div class="footer-section">  
+            <h3>Submitted By:</h3>  
+            <p><b>Name:</b> <span id="outName">SD</span></p>  
+            <p><b>Roll Number:</b> <span id="outRoll">-------</span></p>  
+            <p><b>Year / Semester:</b> <span id="outYear">-------</span></p>  
+        </div>  
+          
+        <div class="divider-line"></div> <div class="footer-section submitted-to-box">  
+            <h3>Submitted To:</h3>  
+            <p><b><span id="outFacName">-------</span></b></p>  
+            <p><span id="outFacDesig">-------</span></p>  
+            <p><span id="outFacDept" class="desig-text">-------</span></p>  
+            <p>THDC-IHET</p>  
+        </div>  
+    </div>  
+
+    <div class="bottom-border"></div>  
+</div>  
+
+<script>  
+    function sync() {  
+        document.getElementById('outDept').innerText = document.getElementById('inDept').value || "-------";  
+        document.getElementById('outAsgn').innerText = document.getElementById('inAsgn').value || "--";  
+        document.getElementById('outSubName').innerText = document.getElementById('inSubName').value || "-------";  
+        document.getElementById('outSubCode').innerText = document.getElementById('inSubCode').value || "-------";  
+        document.getElementById('outName').innerText = document.getElementById('inName').value || "SD";  
+        document.getElementById('outRoll').innerText = document.getElementById('inRoll').value || "-------";  
+        document.getElementById('outYear').innerText = document.getElementById('inYear').value || "-------";  
+        document.getElementById('outFacName').innerText = document.getElementById('inFacName').value || "-------";  
+        document.getElementById('outFacDesig').innerText = document.getElementById('inFacDesig').value || "-------";  
+        document.getElementById('outFacDept').innerText = document.getElementById('inFacDept').value || "-------";  
+    }  
+</script>
+
+</body>  
+</html>  
 
