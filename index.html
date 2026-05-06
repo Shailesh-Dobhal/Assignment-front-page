@@ -14,11 +14,11 @@
         
         button { width: 100%; padding: 12px; background: #27ae60; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 15px; margin-top: 10px; }
 
-        /* A4 Page Styling */
+        /* A4 Page Styling - Updated for better vertical space */
         #assignment-page {
             width: 210mm;
             height: 297mm;
-            padding: 25mm 20mm 15mm 20mm;
+            padding: 15mm 15mm 10mm 15mm; /* Tightened margins */
             background: white;
             box-sizing: border-box;
             display: flex;
@@ -27,34 +27,33 @@
             font-family: "Times New Roman", Times, serif;
             color: black;
             border: 1px solid #ddd;
-            overflow: hidden;
+            overflow: hidden; /* Important to keep on one page */
         }
 
-        .header-text { margin-bottom: 25px; }
-        .header-text h1 { font-size: 19pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.2; }
-        .header-text h2 { font-size: 15pt; margin: 8px 0; font-weight: bold; text-align: center; }
+        .header-text { margin-bottom: 10px; }
+        .header-text h1 { font-size: 17pt; margin: 0; font-weight: bold; text-transform: uppercase; text-align: center; line-height: 1.1; }
+        .header-text h2 { font-size: 13pt; margin: 4px 0; font-weight: bold; text-align: center; }
         
-        .logo-box { margin: 15px 0 25px 0; height: 140px; display: flex; align-items: center; justify-content: center; }
-        .college-logo { width: 140px; height: auto; object-fit: contain; }
+        .logo-box { margin: 10px 0; height: 120px; display: flex; align-items: center; justify-content: center; }
+        .college-logo { width: 120px; height: auto; object-fit: contain; }
 
-        .dept-display { font-size: 17pt; font-weight: bold; margin: 10px 0; text-align: center; }
-        
-        /* Divider Lines - Fixed to 100% width */
-        .divider-line { border-top: 1.2pt solid black; width: 100%; margin: 15pt 0; }
+        .dept-display { font-size: 15pt; font-weight: bold; margin: 4px 0; text-align: center; }
+        .divider-line { border-top: 1pt solid black; width: 100%; margin: 8pt 0; }
 
-        .asgn-display { font-size: 16pt; font-weight: bold; margin: 10pt 0 18pt 0; text-transform: uppercase; }
+        .asgn-display { font-size: 14pt; font-weight: bold; margin: 4pt 0; text-transform: uppercase; }
+        .subject-display p { font-size: 14pt; margin: 4pt 0; text-align: center; }
         
-        .subject-display p { font-size: 16pt; margin: 8pt 0; text-align: center; }
-        
-        .footer-wrap { width: 100%; margin-top: 15mm; display: flex; flex-direction: column; align-items: center; }
+        /* Footer Wrap - Using Flex to occupy space but not too much */
+        .footer-wrap { width: 100%; margin-top: 5mm; display: flex; flex-direction: column; align-items: center; }
         .footer-section { text-align: center; width: 100%; }
-        .footer-section h3 { font-size: 16pt; text-decoration: underline; margin-bottom: 10px; font-weight: bold; }
-        .footer-section p { font-size: 15pt; margin: 6pt 0; }
+        .footer-section h3 { font-size: 14pt; text-decoration: underline; margin-bottom: 6px; font-weight: bold; }
+        .footer-section p { font-size: 13pt; margin: 3pt 0; }
         
-        .submitted-to-box { margin-top: 30px; }
-        .desig-text { display: block; margin-top: 3px; font-size: 14pt; font-weight: normal; }
+        .submitted-to-box { margin-top: 15px; } 
+        .desig-text { display: block; margin-top: 1px; font-size: 12pt; font-weight: normal; }
 
-        .bottom-border { margin-top: auto; border-top: 1pt solid black; width: 100%; padding-bottom: 10mm; }
+        /* Bottom page boundary line */
+        .bottom-border { margin-top: auto; border-top: 1pt solid black; width: 100%; padding-bottom: 5mm; }
 
         @media print {
             body { background: none; padding: 0; }
@@ -63,6 +62,7 @@
             @page { size: A4; margin: 0; }
         }
 
+        /* Screen preview on mobile */
         @media screen and (max-width: 600px) {
             #assignment-page { 
                 transform: scale(0.38); 
@@ -116,7 +116,7 @@
                 <p><b>Year / Semester:</b> <span id="outYear">-------</span></p>
             </div>
             
-            <div class="divider-line"></div>
+            <div class="divider-line" style="width: 80%; opacity: 0.5;"></div>
             
             <div class="footer-section submitted-to-box">
                 <h3>Submitted To:</h3>
