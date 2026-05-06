@@ -33,12 +33,10 @@
         .header-text h2 { font-size: 15pt; margin: 5px 0; font-weight: bold; text-align: center; }
         
         .logo-box { margin: 20px 0; }
-        /* Logo Fix: Using Online link with fallback */
         .college-logo { width: 160px; height: auto; }
 
         .dept-display { font-size: 17pt; font-weight: bold; margin: 8px 0; text-align: center; }
         
-        /* Patli Lines (Thin Lines Fix) */
         .divider-line { border-top: 0.5pt solid black; width: 100%; margin: 10pt 0; }
 
         .asgn-display { font-size: 15pt; font-weight: bold; margin: 8pt 0; text-transform: uppercase; }
@@ -49,9 +47,12 @@
         .footer-section h3 { font-size: 16pt; text-decoration: underline; margin-bottom: 12px; font-weight: bold; }
         .footer-section p { font-size: 15pt; margin: 6pt 0; }
         
-        .submitted-to-box { margin-top: 60px; } 
+        /* 'Submitted To' ko upar shift karne ke liye margin kam kiya */
+        .submitted-to-box { margin-top: 20px; } 
 
-        /* Print Settings for Mobile & PC */
+        /* Designation line break handle karne ke liye */
+        .desig-text { display: block; margin-top: 4px; }
+
         @media print {
             body { background: none; padding: 0; }
             .form-container, button { display: none !important; }
@@ -59,12 +60,11 @@
             @page { size: A4; margin: 0; }
         }
 
-        /* Responsive preview for phone screen */
         @media screen and (max-width: 600px) {
             #assignment-page { 
                 transform: scale(0.4); 
                 transform-origin: top center; 
-                margin-bottom: -180mm; /* Adjusting for scale */
+                margin-bottom: -180mm; 
             }
         }
     </style>
@@ -81,7 +81,8 @@
         <div class="input-group"><label>Roll No.</label><input type="text" id="inRoll" placeholder="Roll Number" oninput="sync()"></div>
         <div class="input-group"><label>Year/Sem</label><input type="text" id="inYear" placeholder="3rd / 6th" oninput="sync()"></div>
         <div class="input-group"><label>Faculty</label><input type="text" id="inFacName" placeholder="Faculty Name" oninput="sync()"></div>
-        <div class="input-group"><label>Designation</label><input type="text" id="inFacDesig" placeholder="Asst. Prof in Dept of EE" oninput="sync()"></div>
+        <div class="input-group"><label>Designation (Assistant Professor in...)</label><input type="text" id="inFacDesig" placeholder="Assistant Professor in" oninput="sync()"></div>
+        <div class="input-group"><label>Dept (Next Line)</label><input type="text" id="inFacDept" placeholder="Department of Electrical Engineering" oninput="sync()"></div>
         
         <button onclick="window.print()">Download PDF</button>
     </div>
@@ -93,7 +94,6 @@
         </div>
         <div class="logo-box">
             <img src="https://i.ibb.co/3Wq8P2m/thdc-logo-final.png" class="college-logo" alt="THDC Logo">
-            
         </div>
         <div class="dept-display">Department of <span id="outDept">-------</span></div>
         <div class="divider-line"></div>
@@ -115,7 +115,10 @@
             <div class="footer-section submitted-to-box">
                 <h3>Submitted To:</h3>
                 <p><b><span id="outFacName">-------</span></b></p>
-                <p id="outFacFullDesig">-------</p>
+                <p>
+                    <span id="outFacDesig">-------</span>
+                    <span id="outFacDept" class="desig-text">-------</span>
+                </p>
                 <p>THDC-IHET</p>
             </div>
         </div>
@@ -132,9 +135,9 @@
             document.getElementById('outRoll').innerText = document.getElementById('inRoll').value || "-------";
             document.getElementById('outYear').innerText = document.getElementById('inYear').value || "-------";
             document.getElementById('outFacName').innerText = document.getElementById('inFacName').value || "-------";
-            document.getElementById('outFacFullDesig').innerText = document.getElementById('inFacDesig').value || "-------";
+            document.getElementById('outFacDesig').innerText = document.getElementById('inFacDesig').value || "-------";
+            document.getElementById('outFacDept').innerText = document.getElementById('inFacDept').value || "-------";
         }
     </script>
 </body>
-  </html>
-  
+</html>
